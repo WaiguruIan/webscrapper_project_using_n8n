@@ -15,7 +15,7 @@ This isn't just a scraper; it's a resilient monitoring system designed to handle
 
 * **Stateful Memory Management:** To avoid "Notification Fatigue," I implemented a persistent memory layer using **Google Sheets**. The system compares live web data against stored states and only triggers an alert if a version transition is detected.
 * **Resilient Web Scraping:** Using **ScraperAPI**, the workflow bypasses anti-bot firewalls and handles IP rotation automatically, ensuring 100% uptime even when hosted on shared cloud environments.
-* **Data Normalization Engine:** Integrated a custom **JavaScript layer** to sanitize and format disparate date strings (e.g., matching "February 19, 2026" to ISO database standards), ensuring bulletproof logic comparisons.
+* **Data Normalization Engine:** Integrated a custom **JavaScript layer** to sanitize and format disparate date strings , ensuring bulletproof logic comparisons.
 * **Nairobi-Synced Scheduling:** Optimized for **UTC+3 (Nairobi Time)** to ensure the 1-hour polling cycle aligns with local peak usage.
 
 ---
@@ -33,7 +33,7 @@ This isn't just a scraper; it's a resilient monitoring system designed to handle
 
 ## 🔧 Engineering Challenges Solved
 ### **The "Date Mismatch" Bug**
-**Challenge:** The website provided dates in human-readable format ("February 19"), while the database stored them differently, causing the filter to trigger false-positive notifications every hour.
+**Challenge:** The website provided dates in human-readable format, while the database stored them differently, causing the filter to trigger false-positive notifications every hour.
 **Solution:** I engineered a "Matchmaker" expression using `.toString().trim()` and a ternary logic gate to normalize the strings before they hit the comparison node.
 
 ### **The Shared-IP Block**
